@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州公用事业技师学院 · 学生反馈</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .notice {
+            background: #f0f7ff;
+            border-left: 4px solid #4a90d9;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+        }
+        .notice strong { color: #1a1a1a; }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .hint {
+            font-size: 13px;
+            color: #999;
+            font-weight: 400;
+            margin-left: 6px;
+        }
+        select, input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #fafafa;
+            transition: border-color 0.2s;
+        }
+        select:focus, input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #4a90d9;
+            background: #fff;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 14px;
+            background: #f5f5f5;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .checkbox-group label:hover { background: #e8e8e8; }
+        .checkbox-group input {
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+        }
+        .checkbox-group label:has(input:checked) {
+            background: #e3f0ff;
+            color: #2563eb;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover { background: #1d4ed8; }
+        button:active { transform: scale(0.99); }
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #bbb;
+        }
+        .success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .success .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .success h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #16a34a;
+        }
+        .success p {
+            color: #666;
+            font-size: 15px;
+        }
+        .form-view { display: block; }
+        .form-view.hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 提交表单 -->
+        <div class="form-view" id="formView">
+            <h1>广州公用事业技师学院</h1>
+            <p class="subtitle">学生反馈平台 · 完全匿名</p>
+
+            <div class="notice">
+                <strong>本平台完全匿名。</strong>不收集姓名、学号、班级等任何个人信息，无需注册登录。你提交的内容只用于整理后向相关部门反映。
+            </div>
+
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label>你遇到了什么情况？<span class="hint">可多选</span></label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="category" value="饭堂食材问题"> 饭堂食材问题</label>
+                        <label><input type="checkbox" name="category" value="饭堂环境卫生"> 饭堂环境卫生</label>
+                        <label><input type="checkbox" name="category" value="吃完后身体不适"> 吃完后身体不适</label>
+                        <label><input type="checkbox" name="category" value="收费不合理"> 收费不合理</label>
+                        <label><input type="checkbox" name="category" value="后厨卫生"> 后厨卫生</label>
+                        <label><input type="checkbox" name="category" value="其他"> 其他</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">大概什么时候发生的？</label>
+                    <input type="text" id="time" name="time" placeholder="例如：上周三晚饭、3月15日中午">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">具体情况<span class="hint">请尽量描述清楚</span></label>
+                    <textarea id="content" name="content" placeholder="发生了什么？吃了什么？当时什么情况？" required></textarea>
+                </div>
+
+                <button type="submit">提交反馈</button>
+            </form>
+
+            <div class="footer">
+                提交即表示你了解本平台为匿名反馈渠道，不收集任何个人信息。
+            </div>
+        </div>
+
+        <!-- 提交成功 -->
+        <div class="success" id="successView">
+            <div class="icon">✓</div>
+            <h2>提交成功</h2>
+            <p>感谢你的反馈。本平台完全匿名，你的信息不会被泄露。</p>
+            <p style="margin-top:12px;font-size:14px;color:#999;">如果邮箱没有自动打开，请手动发送邮件到：<br><strong id="emailDisplay"></strong></p>
+        </div>
+    </div>
+
+    <script>
+        // ========== 修改这里：把下面这个邮箱换成你自己的收件邮箱 ==========
+        var RECEIVE_EMAIL = 'qwert_12316@qq.com';
+        // ================================================================
+
+        document.getElementById('emailDisplay').textContent = RECEIVE_EMAIL;
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 收集表单数据
+            var form = e.target;
+            var categories = [];
+            var checkboxes = form.querySelectorAll('input[name="category"]:checked');
+            for (var i = 0; i < checkboxes.length; i++) {
+                categories.push(checkboxes[i].value);
+            }
+
+            var categoryText = categories.length > 0 ? categories.join('、') : '未勾选';
+            var timeText = form.time.value || '未填写';
+            var contentText = form.content.value;
+
+            // 组装邮件内容
+            var subject = '【反馈】广州公用事业技师学院 学生反馈';
+            var body = '【遇到的情况】' + categoryText + '\n';
+            body += '【发生时间】' + timeText + '\n';
+            body += '【具体情况】' + contentText + '\n';
+            body += '【提交时间】' + new Date().toLocaleString('zh-CN') + '\n';
+            body += '\n（本邮件来自匿名反馈平台，发件人为提交者本人）';
+
+            // 尝试调起邮箱客户端
+            var mailtoUrl = 'mailto:' + RECEIVE_EMAIL +
+                '?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+
+            var opened = false;
+            var win = window.open(mailtoUrl, '_self');
+
+            // 隐藏表单，显示成功页面
+            setTimeout(function() {
+                document.getElementById('formView').classList.add('hidden');
+                document.getElementById('successView').style.display = 'block';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
